@@ -1,0 +1,342 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+
+    /*===== Colors =====*/
+    --first-color: #ffd4d4;
+    --first-color-light: gray;
+    --white-color: #333;
+
+    /*===== Font and typography =====*/
+    --body-font: "Poppins";
+    --normal-font-size: 1rem;
+
+    /*===== z index =====*/
+    --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: 0.5s;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*===== HEADER =====*/
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed);
+    transition: 0.5s;
+}
+
+.header__toggle {
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.header__img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.header__img img {
+    width: 40px;
+}
+
+/*===== NAV =====*/
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: 0.5rem 1rem 0 0;
+    transition: 0.5s;
+    z-index: var(--z-fixed);
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.nav__logo,
+.nav__link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.nav__logo {
+    margin-bottom: 2rem;
+}
+
+.nav__logo-icon {
+    font-size: 1.25rem;
+    color: var(--white-color);
+}
+
+.nav__logo-name {
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.nav__link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+}
+
+.nav__link:hover {
+    color: var(--white-color);
+}
+
+.nav__icon {
+    font-size: 1.25rem;
+}
+
+/*Show navbar movil*/
+.show {
+    left: 0;
+}
+
+/*Add padding body movil*/
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem);
+}
+
+/*Active links*/
+.active {
+    color: var(--white-color);
+}
+
+.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--white-color);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem);
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    }
+
+    .header__img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header__img img {
+        width: 45px;
+    }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0;
+    }
+
+    /*Show navbar desktop*/
+    .show {
+        width: calc(var(--nav-width) + 156px);
+    }
+
+    /*Add padding body desktop*/
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px);
+    }
+}
+
+/* Content */
+.posts_tabel {
+    padding: 20px;
+}
+
+.section_tabel {
+    overflow-x: auto;
+}
+
+.data_tabel,
+td,
+th {
+    border: 1px solid #333;
+}
+
+th {
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+td {
+    padding: 20px;
+}
+
+.data_tabel tr:last-child td {
+    border-radius: 0 0 10px 10px;
+}
+
+.data_tabel {
+    border-radius: 10px;
+    /* overflow-x: auto; */
+}
+
+th {
+    background-color: #333;
+    color: aliceblue;
+}
+
+/* CREATE POST FORM */
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+.contact_form {
+    width: 460px;
+    font-family: var(--body-font);
+}
+
+.contact_container {
+    row-gap: 3rem;
+}
+
+.contact_information {
+    display: flex;
+    margin-bottom: var(--mb-1);
+}
+
+.contact_icon {
+    font-size: 2rem;
+    color: var(--first-color);
+    margin-right: var(--mb-0-75);
+}
+
+.contact_title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+}
+
+.contact_subtitle {
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+}
+
+.contact_content {
+    background-color: var(--input-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem 0.25rem;
+}
+
+.contact_label {
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.contact_label {
+    font-size: 18px;
+}
+
+.contact_input {
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    padding: 0.25rem 0.5rem 0.5rem 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #333;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: var(--font-medium);
+    transition: 0.2s;
+}
+
+.button:hover {
+    background-color: #4d3fb5;
+    color: #fff;
+}
+
+.button--white {
+    background-color: #4d3fb5;
+    color: var(--first-color);
+}
+
+.button--white:hover {
+    background-color: #4d3fb5;
+}
+
+.button_icon {
+    font-size: 1.25rem;
+    margin-left: var(--mb-0-5);
+    transition: 0.3s;
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center;
+}
+
+.button--small {
+    padding: 0.75rem 1rem;
+}
+
+.button--link {
+    padding: 0;
+    background-color: transparent;
+    color: var(--first-color);
+}
+
+.button--link:hover {
+    background-color: transparent;
+    color: #4d3fb5;
+}
